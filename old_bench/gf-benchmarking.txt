@@ -1,11 +1,11 @@
 (lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$ time make -f Makefile.manual
 cd src; make -f Makefile.manual
 make[1]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/src'
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c types.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c constants.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c dft_data.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c utils.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c energies.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c types.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c constants.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c dft_data.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c utils.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c energies.f90
 energies.f90:88:23:
 
    86 | do i = 1, size(no)
@@ -14,47 +14,43 @@ energies.f90:88:23:
    88 |         if (no(i) < no(i-1)) call stop_error("State order wrong")
       |                       1
 Warning: Array reference at (1) out of bounds (0 < 1) in loop beginning at (2) [-Wdo-subscript]
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c ode1d.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c mixings.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c rdirac.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c rschroed.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c reigen.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c rpoisson.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c dft.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c mesh.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c states.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c drivers.f90
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -c dftatom.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c ode1d.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c mixings.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c rdirac.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c rschroed.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c reigen.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c rpoisson.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c dft.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c mesh.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c states.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c drivers.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -c dftatom.f90
 ar rcs libdftatom.a constants.o dft.o dft_data.o dftatom.o drivers.o energies.o mesh.o mixings.o ode1d.o rdirac.o reigen.o rpoisson.o rschroed.o states.o types.o utils.o
 make[1]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/src'
 cd tests; make -f Makefile.manual
 make[1]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
 cd lda; make -f Makefile.manual
 make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -I../../src -c conv_lda.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -I../../src -c conv_lda.f90
 gfortran -o conv_lda conv_lda.o -ldftatom -L../../src
 make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
 cd rlda; make -f Makefile.manual
 make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -I../../src -c conv_rlda.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -I../../src -c conv_rlda.f90
 gfortran -o conv_rlda conv_rlda.o -ldftatom -L../../src
 make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
 cd atom_U; make -f Makefile.manual
 make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
-gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -I../../src -c F_atom_U.f90
+gfortran -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -g -fbounds-check -I../../src -c F_atom_U.f90
 gfortran -o F_atom_U F_atom_U.o -ldftatom -L../../src
 make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
 make[1]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
 
-real    0m2.332s
-user    0m1.622s
-sys     0m0.622s
-(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$ time make -f Makefile.manual test
-cd tests; make -f Makefile.manual test
-make[1]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
-cd lda; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
-./conv_lda
+real    0m3.540s
+user    0m2.812s
+sys     0m0.726s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$ cd tests/lda
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/lda$ time ./conv_lda
  Test eps:   1.1999999999999999E-003
  Z=          92
  N=         861
@@ -193,10 +189,12 @@ E_tot= -25658.4178888593 E_tot_exact= -25658.4178888534 error:  5.95E-09
 6p      -0.8225379710     -0.8225379709  5.41E-11    6.000
 6d      -0.1431901812     -0.1431901813 -5.01E-11    1.000
 7s      -0.1309478622     -0.1309478622  1.40E-11    2.000
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
-cd rlda; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
-./conv_rlda
+
+real    0m3.376s
+user    0m3.329s
+sys     0m0.025s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/lda$ cd ../rlda/
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/rlda$ time ./conv_rlda
  Test eps:   1.1999999999999999E-003
  Z=          92
  N=         927
@@ -401,40 +399,8 @@ E_tot= -28001.13232549 E_tot_exact= -28001.13232549 error:  4.83E-09
 6d      -0.10304082     -0.10304082  4.85E-11    0.400
 6d      -0.08480202     -0.08480202  4.69E-11    0.600
 7s      -0.16094728     -0.16094728  1.70E-10    2.000
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
-cd atom_U; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
-./F_atom_U
- Z=          92 N=        5500
-E_tot=     -25658.417889
- state    E            occupancy
-1s       -3689.355140    2.000
-2s        -639.778728    2.000
-2p        -619.108550    6.000
-3s        -161.118073    2.000
-3p        -150.978980    6.000
-3d        -131.977358   10.000
-4s         -40.528084    2.000
-4p         -35.853321    6.000
-4d         -27.123212   10.000
-4f         -15.027460   14.000
-5s          -8.824089    2.000
-5p          -7.018092    6.000
-5d          -3.866175   10.000
-5f          -0.366543    3.000
-6s          -1.325976    2.000
-6p          -0.822538    6.000
-6d          -0.143190    1.000
-7s          -0.130948    2.000
- Print the first 10 values of the 1st and 2nd orbitals:
-   1753.2892641883905        1753.2812175212159        1753.2731512531927        1753.2650645481483        1753.2569495840855        1753.2488203555076        1753.2406710771227        1753.2325014795715        1753.2243110250909        1753.2160993496127
-   587.50702296388670        587.50432661496916        587.50162369310533        587.49891391921824        587.49619467261732        587.49347064284518        587.49073989137810        587.48800232798010        587.48525777245675        587.48250610280650
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
-make[1]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
 
-All tests passed.
-
-real    0m8.626s
-user    0m8.558s
-sys     0m0.055s
-(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$
+real    0m7.677s
+user    0m7.611s
+sys     0m0.034s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/rlda$

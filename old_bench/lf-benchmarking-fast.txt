@@ -38,15 +38,11 @@ lfortran --skip-pass=inline_function_calls,fma --fast -o F_atom_U F_atom_U.o -ld
 make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
 make[1]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
 
-real    0m17.152s
-user    0m16.203s
-sys     0m0.826s
-(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$ time make -f Makefile.manual test
-cd tests; make -f Makefile.manual test
-make[1]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
-cd lda; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
-./conv_lda
+real    0m16.001s
+user    0m15.301s
+sys     0m0.690s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$ cd tests/lda
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/lda$ time ./conv_lda
 Test eps: 1.19999999999999989e-03
 Z= 92
 N= 861
@@ -185,10 +181,12 @@ state    E            E_exact          error     occupancy
 6p      -0.8225379710     -0.8225379709  5.01E-11    6.000
 6d      -0.1431901813     -0.1431901813 -4.52E-11    1.000
 7s      -0.1309478622     -0.1309478622  1.64E-11    2.000
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/lda'
-cd rlda; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
-./conv_rlda
+
+real    0m2.430s
+user    0m2.416s
+sys     0m0.014s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/lda$ cd ../rlda/
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/rlda$ time ./conv_rlda
 Test eps: 1.19999999999999989e-03
 Z= 92
 N= 927
@@ -393,40 +391,8 @@ state    E            E_exact          error     occupancy
 6d      -0.10304082     -0.10304082  4.85E-11    0.400
 6d      -0.08480202     -0.08480202  4.69E-11    0.600
 7s      -0.16094728     -0.16094728  1.70E-10    2.000
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/rlda'
-cd atom_U; make -f Makefile.manual test
-make[2]: Entering directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
-./F_atom_U
-Z= 92 N= 5500
-E_tot=     -25658.417889
-state    E            occupancy
-1s       -3689.355140    2.000
-2s        -639.778728    2.000
-2p        -619.108550    6.000
-3s        -161.118073    2.000
-3p        -150.978980    6.000
-3d        -131.977358   10.000
-4s         -40.528084    2.000
-4p         -35.853321    6.000
-4d         -27.123212   10.000
-4f         -15.027460   14.000
-5s          -8.824089    2.000
-5p          -7.018092    6.000
-5d          -3.866175   10.000
-5f          -0.366543    3.000
-6s          -1.325976    2.000
-6p          -0.822538    6.000
-6d          -0.143190    1.000
-7s          -0.130948    2.000
-Print the first 10 values of the 1st and 2nd orbitals:
-1.75328926418856759e+03 1.75328121752139327e+03 1.75327315125337032e+03 1.75326506454832543e+03 1.75325694958426288e+03 1.75324882035568498e+03 1.75324067107729979e+03 1.75323250147974863e+03 1.75322431102526821e+03 1.75321609934979006e+03
-5.87507022963897157e+02 5.87504326614979618e+02 5.87501623693115789e+02 5.87498913919228812e+02 5.87496194672627894e+02 5.87493470642855641e+02 5.87490739891388557e+02 5.87488002327990557e+02 5.87485257772467207e+02 5.87482506102816956e+02
-make[2]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests/atom_U'
-make[1]: Leaving directory '/home/ubaid/Desktop/Open-Source/dftatom/tests'
 
-All tests passed.
-
-real    0m7.930s
-user    0m7.815s
-sys     0m0.069s
-(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom$
+real    0m5.163s
+user    0m5.121s
+sys     0m0.042s
+(lf_26) ubaid@ubaid-Lenovo-ideapad-330-15ARR:~/Desktop/Open-Source/dftatom/tests/rlda$
