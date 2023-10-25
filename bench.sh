@@ -3,7 +3,7 @@
 git clean -dfx
 
 echo "RUN lfortran"
-time make -f Makefile.manual F90=lfortran F90FLAGS=""
+time make -f Makefile.manual F90=lfortran F90FLAGS="-I../../src"
 cd tests/lda
 time ./conv_lda
 cd ../rlda
@@ -12,7 +12,7 @@ cd ../..
 
 echo "RUN lfortran --fast"
 git clean -dfx
-time make -f Makefile.manual F90="lfortran --skip-pass=inline_function_calls,fma --fast" F90FLAGS=""
+time make -f Makefile.manual F90="lfortran --skip-pass=inline_function_calls,fma --fast" F90FLAGS="-I../../src"
 cd tests/lda
 time ./conv_lda
 cd ../rlda
@@ -22,7 +22,7 @@ cd ../..
 
 echo "RUN gfortran"
 git clean -dfx
-time make -f Makefile.manual F90=gfortran F90FLAGS="-Wall -std=f95 -Wextra -Wimplicit-interface -fPIC"
+time make -f Makefile.manual
 cd tests/lda
 time ./conv_lda
 cd ../rlda
@@ -31,7 +31,7 @@ cd ../..
 
 echo "RUN gfortran -fast"
 git clean -dfx
-time make -f Makefile.manual F90=gfortran F90FLAGS="-Wall -std=f95 -Wextra -Wimplicit-interface -fPIC -O3 -march=native -ffast-math -funroll-loops"
+time make -f MakefileRelease.manual
 cd tests/lda
 time ./conv_lda
 cd ../rlda

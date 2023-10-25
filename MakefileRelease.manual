@@ -6,7 +6,7 @@ F90FLAGS = -Wall -std=f95 -Wextra -Wimplicit-interface -fPIC
 # Debug flags:
 #F90FLAGS += -g -fbounds-check
 # Release flags:
-#F90FLAGS += -O3 -march=native -ffast-math -funroll-loops
+F90FLAGS += -O3 -march=native -ffast-math -funroll-loops
 
 # Intel ifort
 #F90 = ifort-12.0.191
